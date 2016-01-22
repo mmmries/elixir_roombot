@@ -1,20 +1,31 @@
 # ElixirRoombot
 
-**TODO: Add description**
+A starter kit for driving a roombot with Elixir.
 
-## Installation
+## Controlling the Roombot Simulator
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
+There is a roombot simulator on http://roombots.riesd.com/.
+Once you have started a simulation it will tell you the name of the channel you need to connect to.
+Now clone this repository to your computer and do the following:
 
-  1. Add elixir_roombot to your list of dependencies in `mix.exs`:
+```
+cd elixir_roombot
+mix do deps.get, compile
+mix drive roombots.riesd.com <your-channel-here>
+```
 
-        def deps do
-          [{:elixir_roombot, "~> 0.0.1"}]
-        end
+This will fire up `ElixirRoomobt` and you should see some messages about connecting and joining the channel.
+Now you can start to customize the main `lib/elixir_roombot.ex` file to make your code control the roombot however you like.
 
-  2. Ensure elixir_roombot is started before your application:
+## Controlling a Real Roombot
 
-        def application do
-          [applications: [:elixir_roombot]]
-        end
+Real roombots always use the channel `roomba` for controlling and getting sensor updates.
+You will need to find out that IP address of the roombot you want to control.
+You can [check the recent list](http://roombots.riesd.com/bots) online.
+Once you have an IP address just run this project like:
 
+```
+mix drive <ip-address-of-roombot> roomba
+```
+
+Best of luck!
